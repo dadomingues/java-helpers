@@ -60,4 +60,14 @@ public class StrTest {
         assertEquals("select * from table where text = \\'string\\'", nome);
     }
 
+    @Test
+    public void deve_truncar() {
+        String nome = Str.lTrim("aaaaaaaDanielbbb", 'a');
+        assertEquals("Danielbbb", nome);
+        nome = Str.rTrim("aaaDanielbbbb", 'b');
+        assertEquals("aaaDaniel", nome);
+        nome = Str.trim("cccDanielccccc", 'c');
+        assertEquals("Daniel", nome);
+    }
+
 }

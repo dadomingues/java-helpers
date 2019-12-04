@@ -34,12 +34,44 @@ public class Str extends StringUtils{
         return leftPad(unpadded, length, "0");
     }
 
+    public static String lPad(String unpadded, int length, String s) {
+        return leftPad(unpadded, length, s);
+    }
+
+    public static String rPad(String unpadded, int length, String s) {
+        return rightPad(unpadded, length, s);
+    }
+
+    public static String lPad(String unpadded, int length, char c) {
+        return leftPad(unpadded, length, c);
+    }
+
+    public static String rPad(String unpadded, int length, char c) {
+        return rightPad(unpadded, length, c);
+    }
+
     public static String trim(String text, char c) {
-        return text;
+        return lTrim(rTrim(text, c), c);
     }
 
     public static String trim(String text) {
         return text.trim();
+    }
+
+    public static String rTrim(String text) {
+        return text.replaceAll("\\s+$", "");
+    }
+
+    public static String lTrim(String text) {
+        return text.replaceAll("^\\s+", "");
+    }
+
+    public static String rTrim(String text, char c) {
+        return text.replaceAll(c + "+$", "");
+    }
+
+    public static String lTrim(String text, char c) {
+        return text.replaceAll("^" + c + "+", "");
     }
 
     public static String name(String text, NamingFlavors flavor) {
